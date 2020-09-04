@@ -1,6 +1,22 @@
-<button class="btn btn-primary" [disabled]="!isServerButtonAllowed">
-  This Server
-</button>
+<div>
+  <label for="inputValue">Please enter a value: </label>
+   <!-- <input type="text" class="form-control" id="inputValue" (input) = "onUpdateServerName($event)"/>  -->
+  <!--
+    $event is something that will give access to the data => Something to remember
+  -->
+  <input type="text" class="form-control" id="inputValue1" [(ngModel)] = "serverName"/>
+  <!-- <div>{{ serverName }}</div> -->
+</div>
+<hr>
+  <button class="btn btn-primary" 
+    [disabled]="!isServerButtonAllowed"
+    (click) = "onCreateServer()"
+  >
+    Server
+  </button>
+  
+  <p>{{ onServerCreate }}</p>
+  
+  <app-server></app-server>
+  <app-server></app-server>
 
-<app-server></app-server>
-<app-server></app-server>
