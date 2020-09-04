@@ -1,1 +1,7 @@
-<p>assignment2 works!</p>
+<div class="card">
+    <label for="username">Username</label>
+    <input type="text" [(ngModel)]="username" class="form-control">
+    <p>{{ username }}</p>
+
+    <button class="btn btn-primary" [disabled]="username == ''" (click) ="username = ''">Click me </button>
+</div>
