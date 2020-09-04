@@ -6,11 +6,10 @@ import { Component } from '@angular/core';
 })
 
 export class ServerComponent {
-    name : string = "Pushpender";
-    age : number = 23;
+    name: string = 'Pushpender';
+    age: number = 23;
 
     getAge(){
         return this.age;
     }
-    
 }
