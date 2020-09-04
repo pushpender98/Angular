@@ -15,7 +15,11 @@
     Server
   </button>
   
-  <p>{{ onServerCreate }}</p>
+  <p *ngIf = "serverCreated; else noServer;" >{{ onServerCreate }}</p>
+
+  <ng-template #noServer>
+    <p>No server Div</p>
+  </ng-template> 
   
   <app-server></app-server>
   <app-server></app-server>
