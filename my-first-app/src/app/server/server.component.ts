@@ -5,4 +5,12 @@ import { Component } from '@angular/core';
     templateUrl : './server.component.html'
 })
 
-export class ServerComponent {}
+export class ServerComponent {
+    name : string = "Pushpender";
+    age : number = 23;
+
+    getAge(){
+        return this.age;
+    }
+    
+}
