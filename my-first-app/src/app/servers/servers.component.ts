@@ -13,6 +13,8 @@ export class ServersComponent implements OnInit {
   serverName = "Hello there";
   serverCreated = false;
 
+  serverArray = ['test', 'test 2'];
+
   constructor() {
     setTimeout(function(){
       this.isServerButtonAllowed = "true";
@@ -24,6 +26,7 @@ export class ServersComponent implements OnInit {
 
   onCreateServer() {
     this.serverCreated = true;
+    this.serverArray.push(this.serverName);
     this.onServerCreate = "Server is created, " + this.serverName;
   }
 

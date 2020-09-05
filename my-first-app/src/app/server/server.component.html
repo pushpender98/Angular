@@ -1,1 +1,5 @@
 <h2>Its {{ name }} here and my age is {{ getAge() }}</h2>
+
+<p [ngStyle] = "{backgroundColor: getColor()}"> Server Status : {{serverStatus}}</p>
+
+<p ngClass="{{serverStatus == 'online' ? 'online' : 'offline'}} "> Server Status Class : {{serverStatus}}</p>

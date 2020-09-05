@@ -13,3 +13,10 @@ I have learned, so far are as follows...
         => Syntax: (event like click) = "<function name>"
     - Two Way Bindings 
         => Syntax: [(ngmodel)] = "What we want to do"
+- Directive (* represents the structural directive)
+    -  *ngIf = "<Method, variable anything>"
+    -  *ngIf = "<Method; else <name>>"
+    -  ngStyle => syntax [ngStyle] = "{propertyName : "<method or the value>"}"
+    -  ngClass => ngClass = "{}";
+    -  *ngFor => *ngFor = "let server of serverArray"
+    -  *ngFor => *ngFor = "let server of serverArray; let i =index;"

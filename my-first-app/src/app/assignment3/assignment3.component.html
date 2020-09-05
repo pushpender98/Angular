@@ -1,0 +1,31 @@
+<h4>Assignment Task</h4>
+<hr />
+<p>Add a button which says "Display Details"</p>
+<p>Add a paragraph with any content of your choice</p>
+<p>
+  Toggle the displaying of that paragraphwith the button created in the first
+  step
+</p>
+<p>
+  log all button click in an array and output below the secret paragraph (No of
+  clicks)
+</p>
+<p>
+  strting with the 5th element , give all the future items a blue background
+  and white color
+</p>
+
+<button class="btn btn-primary" (click)="toogleButton()">
+  Display Details
+</button>
+<div *ngIf="showPara">
+  <p>Secreat password</p>
+</div>
+
+<p
+  *ngFor="let server of logArray"
+  [ngStyle]="{backgroundColor: server >= 5 ? 'blue':'transparent'}"
+  [ngClass]="{'white-text': server >= 5 }"
+>
+  No of Click : {{ server }}
+</p>
