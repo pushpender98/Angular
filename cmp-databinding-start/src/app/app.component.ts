@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+interface Data {
+  serverName: string;
+  serverContent: string;
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,7 +15,7 @@ export class AppComponent {
     {type: 'server', name: 'TestServer', content: 'Just a test!'}
   ];
 
-  onServerAdded(serverData: {serverName: string, serverContent: string}) {
+  onServerAdded(serverData: Data) {
     this.serverElements.push({
       type: 'server',
       name: serverData.serverName,
@@ -18,7 +23,7 @@ export class AppComponent {
     });
   }
 
-  onBlueprintAdded(blueprintData: {serverName: string, serverContent: string}) {
+  onBlueprintAdded(blueprintData: Data) {
     this.serverElements.push({
       type: 'blueprint',
       name: blueprintData.serverName,

@@ -6,8 +6,12 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./cockpit.component.css']
 })
 export class CockpitComponent implements OnInit {
- @Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
- @Output() bluePrintCreated = new EventEmitter<{serverName: string, serverContent: string}>(); 
+ /**
+  * Best Learning here: serve and blueprint are the same function here that we have used as a event binding
+  */
+ @Output() server: EventEmitter<{serverName: string, serverContent: string}> = new EventEmitter(); 
+ // Second way
+ @Output() blueprint = new EventEmitter<{serverName: string, serverContent: string}>(); 
   newServerName = '';
   newServerContent = '';
 
@@ -17,10 +21,10 @@ export class CockpitComponent implements OnInit {
   }
   
   onAddServer() {
-    this.serverCreated.emit({serverName : this.newServerName, serverContent: this.newServerContent});
+    this.server.emit({serverName : this.newServerName, serverContent: this.newServerContent});
   }
 
   onAddBlueprint() {
-    this.bluePrintCreated.emit({serverName : this.newServerName, serverContent: this.newServerContent});
+    this.blueprint.emit({serverName : this.newServerName, serverContent: this.newServerContent});
   }
 }
