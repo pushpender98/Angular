@@ -1,30 +1,43 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from "@angular/core";
 
 @Component({
-  selector: 'app-cockpit',
-  templateUrl: './cockpit.component.html',
-  styleUrls: ['./cockpit.component.css']
+  selector: "app-cockpit",
+  templateUrl: "./cockpit.component.html",
+  styleUrls: ["./cockpit.component.css"],
 })
 export class CockpitComponent implements OnInit {
- /**
-  * Best Learning here: serve and blueprint are the same function here that we have used as a event binding
-  */
- @Output() server: EventEmitter<{serverName: string, serverContent: string}> = new EventEmitter(); 
- // Second way
- @Output() blueprint = new EventEmitter<{serverName: string, serverContent: string}>(); 
-  newServerName = '';
-  newServerContent = '';
+  /**
+   * Best Learning here: serve and blueprint are the same function here that we have used as a event binding
+   */
+  @Output() server: EventEmitter<{
+    serverName: string;
+    serverContent: string;
+  }> = new EventEmitter();
+  // Second way
+  @Output() blueprint = new EventEmitter<{
+    serverName: string;
+    serverContent: string;
+  }>();
+  // newServerName = '';
+  //newServerContent = "";
+  // Getting access to Template and DOM
+  @ViewChild('newServerContent', {static: true}) serverContentInput: ElementRef;   
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onAddServer(newServername: HTMLInputElement) {
+    this.server.emit({
+      serverName: newServername.value,
+      serverContent: this.serverContentInput.nativeElement.value,
+    });
   }
-  
-  onAddServer() {
-    this.server.emit({serverName : this.newServerName, serverContent: this.newServerContent});
-  }
 
-  onAddBlueprint() {
-    this.blueprint.emit({serverName : this.newServerName, serverContent: this.newServerContent});
+  onAddBlueprint(newServername: HTMLInputElement) {
+    this.blueprint.emit({
+      serverName: newServername.value,
+      serverContent:this.serverContentInput.nativeElement.value,
+    });
   }
 }

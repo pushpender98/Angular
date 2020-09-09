@@ -1,15 +1,21 @@
 <div class="container">
   <app-cockpit
-   (server) = "onServerAdded($event)"
-   (blueprint) = "onBlueprintAdded($event)"
-   ></app-cockpit>
+    (server)="onServerAdded($event)"
+    (blueprint)="onBlueprintAdded($event)"
+  ></app-cockpit>
   <hr />
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element  
+      <app-server-element
         *ngFor="let serverElement of serverElements"
-        [element] = "serverElement" 
-      ></app-server-element>
+        [element]="serverElement"
+      >
+      <!-- Use of Ng content :- just to print something b/w the component tags -->
+        <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
+          serverElement.content
+        }}</strong>
+        <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+      </app-server-element>
     </div>
   </div>
 </div>
