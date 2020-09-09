@@ -1,1 +1,18 @@
-<p>recipe-item works!</p>
+<ul class="list-group">
+  <li class="list-group-item">
+    <a href="#" (click)="onSelected()">
+      <div class="float-left">
+        <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
+        <p class="list-group-item-text">{{ recipe.description }}</p>
+      </div>
+      <div class="float-right">
+        <img
+          src="{{ recipe.imagePath }}"
+          alt="{{ recipe.name }}"
+          class="img-responsive rounded"
+          style="max-height: 50px"
+        />
+      </div>
+    </a>
+  </li>
+</ul>
