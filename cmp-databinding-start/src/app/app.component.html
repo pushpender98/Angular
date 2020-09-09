@@ -11,10 +11,12 @@
         [element]="serverElement"
       >
       <!-- Use of Ng content :- just to print something b/w the component tags -->
-        <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
-          serverElement.content
-        }}</strong>
-        <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+        <p #contentPara>
+          <strong *ngIf="serverElement.type === 'server'" style="color: red">{{
+            serverElement.content
+          }}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+        </p>  
       </app-server-element>
     </div>
   </div>

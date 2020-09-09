@@ -15,6 +15,8 @@ export class AppComponent {
     {type: 'server', name: 'TestServer', content: 'Just a test!'}
   ];
 
+ 
+
   onServerAdded(serverData: Data) {
     this.serverElements.push({
       type: 'server',
