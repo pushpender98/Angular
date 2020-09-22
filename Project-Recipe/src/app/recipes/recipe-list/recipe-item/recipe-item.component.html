@@ -1,5 +1,5 @@
 <ul class="list-group">
-  <li class="list-group-item" style="cursor: pointer" (click)="onSelected()">
+  <li class="list-group-item" style="cursor: pointer" [routerLink] = "[index]" routerLinkActive= "active">
     <a>
       <div class="float-left">
         <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
