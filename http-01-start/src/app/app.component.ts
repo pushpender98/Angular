@@ -1,5 +1,7 @@
+import { PostsService } from './post.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Post } from './post.model';
 
 @Component({
   selector: 'app-root',
@@ -7,22 +9,40 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  loadedPosts = [];
+  loadedPosts: Post[] = [];
+  isFetching = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private postService:PostsService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.isFetching = true; 
+    this.postService.fetchPost().subscribe(posts=>{
+      this.isFetching= false;
+      this.loadedPosts = posts;
+    }, error => {
+      console.log(error)
+    });
+  }
 
-  onCreatePost(postData: { title: string; content: string }) {
+  onCreatePost(postData: Post) {
     // Send Http request
-    console.log(postData);
+    this.postService.createAndStorePost(postData.title, postData.content);
   }
 
   onFetchPosts() {
-    // Send Http request
+    this.isFetching = true; 
+    this.postService.fetchPost().subscribe(posts=>{
+      this.isFetching= false;
+      this.loadedPosts = posts;
+    }, error => {
+      console.log(error)
+    });
   }
 
   onClearPosts() {
     // Send Http request
+    this.postService.clearPost().subscribe(()=> {
+      this.loadedPosts = [];
+    });
   }
 }
