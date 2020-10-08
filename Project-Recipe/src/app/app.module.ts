@@ -21,6 +21,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-edit.component';
 import { DropdownDirectiveDirective } from './shared/dropdown-directive.directive';
 import { AuthComponent } from './auth/auth.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AuthComponent } from './auth/auth.component';
     DropdownDirectiveDirective,
     RecipeStartComponent,
     RecipeEditComponent,
-    AuthComponent
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,
